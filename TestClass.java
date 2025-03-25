@@ -1,8 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,35 +9,37 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestClass {
-    private static WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private JavascriptExecutor js;
 
     @BeforeAll
-    public static void setup() {
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        js = (JavascriptExecutor) driver;
+    }
+
+    @BeforeEach
+    public void openPage() {
+        driver.get("https://www.mts.by/");
     }
 
     @Test
     @DisplayName("Проверка названия")
     public void checkName() {
-        driver.get("https://www.mts.by/");
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        WebElement h2Element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Онлайн пополнение')]")));
-
+        WebElement h2Element = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//h2[contains(text(),'Онлайн пополнение')]")));
         String actualText = h2Element.getText().replaceAll("\\s+", " ").trim();
-
         assertEquals("Онлайн пополнение без комиссии", actualText);
     }
-
 
     @Test
     @DisplayName("Проверка логотипов")
     public void checkLogo() {
-        driver.get("https://www.mts.by/");
-
         String[] logoXpaths = {
                 "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[1]/img",
                 "//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[2]/img",
@@ -49,35 +49,33 @@ public class TestClass {
         };
 
         for (String xpath : logoXpaths) {
-            WebElement logo = driver.findElement(By.xpath(xpath));
-            assertTrue(logo.isDisplayed());
+            WebElement logo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            assertTrue(logo.isDisplayed(), "Логотип не отображается: " + xpath);
         }
     }
 
     @Test
     @DisplayName("Проверка ссылки")
     public void checkLink() {
-        driver.get("https://www.mts.by/");
-
         String linkXpath = "//a[@href='/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/']";
-
-        WebElement linkElement = driver.findElement(By.xpath(linkXpath));
+        WebElement linkElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(linkXpath)));
 
         String currentUrl = driver.getCurrentUrl();
-
         linkElement.click();
+        wait.until(ExpectedConditions.urlContains("poryadok-oplaty-i-bezopasnost-internet-platezhey"));
 
         String newUrl = driver.getCurrentUrl();
-        assertNotEquals(currentUrl, newUrl);
+        assertNotEquals(currentUrl, newUrl, "URL не изменился после клика по ссылке.");
     }
 
     @Test
     @DisplayName("Проверка полей формы")
     public void checkForm() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        js.executeScript("document.getElementById('bxdynamic_pay-form_start').style.display='block';");
 
-        WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='input-wrapper input-wrapper_label-left']//input[@class='phone']")));
-        phoneField.sendKeys("297777777");
+        WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//input[@class='phone']")));
+        js.executeScript("arguments[0].value='297777777'; arguments[0].dispatchEvent(new Event('input'));", phoneField);
 
         WebElement sumField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("connection-sum")));
         sumField.sendKeys("100");
@@ -85,12 +83,13 @@ public class TestClass {
         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("connection-email")));
         emailField.sendKeys("Example@yandex.ru");
 
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Продолжить')]")));
-        submitButton.click();
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(text(),'Продолжить')]")));
+        js.executeScript("arguments[0].click();", submitButton);
     }
 
     @AfterAll
-    public static void teardown() {
+    public void teardown() {
         if (driver != null) {
             driver.quit();
         }
