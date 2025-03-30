@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2ac1026-90d1-4119-9309-958f8537e7cb" name="Changes" comment="" />
+    <list default="true" id="fb75e3d7-5d92-465a-9dd5-d694b12ebcd0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,125 +18,29 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2uRHNwsup1J5TGFRe8WfrfJrUy3" />
+  <component name="ProjectId" id="2v0SOxUcUhKn6zOydcq29oRFXbw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.ArithmeticOperations.executor": "Run",
-    "Application.CompareNumbers.executor": "Run",
-    "Application.ForTesting.executor": "Run",
-    "Application.TriangleArea.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.FourTests.executor": "Run",
-    "JUnit.Tests.executor": "Run",
-    "JUnit.TriangleAreaTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
+    "JUnit.PostmanTest.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/IdeaProjects/Lesson_14_junit_5",
-    "onboarding.tips.debug.path": "C:/Users/User/IdeaProjects/Lesson-14/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35402298",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\IdeaProjects\Lesson_14_junit_5\src" />
-      <recent name="C:\Users\User\IdeaProjects\Lesson_14_junit_5\src\test\java" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.FourTests">
-    <configuration name="ArithmeticOperations" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.ArithmeticOperations" />
-      <module name="Lesson_14_junit_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompareNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.CompareNumbers" />
-      <module name="Lesson_14_junit_5" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleArea" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.TriangleArea" />
-      <module name="Lesson_14_junit_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FourTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Lesson_14_junit_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.FourTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Lesson_14_junit_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Tests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.FourTests" />
-        <item itemvalue="JUnit.Tests" />
-        <item itemvalue="Application.CompareNumbers" />
-        <item itemvalue="Application.ArithmeticOperations" />
-        <item itemvalue="Application.TriangleArea" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2ac1026-90d1-4119-9309-958f8537e7cb" name="Changes" comment="" />
-      <created>1742204433385</created>
+      <changelist id="fb75e3d7-5d92-465a-9dd5-d694b12ebcd0" name="Changes" comment="" />
+      <created>1743280470140</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1742204433385</updated>
+      <updated>1743280470140</updated>
     </task>
     <servers />
   </component>
